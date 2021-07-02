@@ -61,12 +61,12 @@ public class ConfigLoader {
 				field.setAccessible(true);
 				ConfigOption option = field.getAnnotation(ConfigOption.class);
 				if (option != null) {
-					YamlTransform transform = option.transform().newInstance();
+					YamlTransform transform = option.transform().getDeclaredConstructor().newInstance();
 					yamlConfiguration.set(option.path(), transform.toYaml(field.get(config)));
 				}
 			}
 			yamlConfiguration.save(config.getFile());
-		} catch (IOException | IllegalAccessException | InstantiationException e) {
+		} catch (IOException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
 			logger.error("Unable to save config "+config.getClass().getSimpleName(), e);
 		}
 	}
