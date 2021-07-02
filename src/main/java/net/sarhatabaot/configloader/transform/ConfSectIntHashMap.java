@@ -11,9 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/**
- *
- */
 public class ConfSectIntHashMap implements YamlTransform {
 	private final Logger logger = LoggerFactory.getLogger(ConfSectIntHashMap.class);
 	@SuppressWarnings("unchecked")

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 
 public class ConfigLoader {
 	private static final Logger logger = LoggerFactory.getLogger(ConfigLoader.class);
@@ -25,7 +26,7 @@ public class ConfigLoader {
 				field.setAccessible(true);
 				ConfigOption option = field.getAnnotation(ConfigOption.class);
 				if (option != null) {
-					YamlTransform transform = option.transform().newInstance();
+					YamlTransform transform = option.transform().getDeclaredConstructor().newInstance();
 					String path = option.path();
 					Object newValue = field.get(config);
 					if (yamlConfiguration.contains(path)) {
@@ -38,11 +39,11 @@ public class ConfigLoader {
 							}
 						}
 					}
-					option.postLoad().newInstance().postLoad(newValue);
+					option.postLoad().getDeclaredConstructor().newInstance().postLoad(newValue);
 					field.set(config, newValue);
 				}
 			}
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException | InvocationTargetException | NoSuchMethodException e) {
 			e.printStackTrace();
 		}catch (IOException | IllegalAccessException | InstantiationException | InvalidConfigurationException e) {
 			logger.error("Unable to load config "+config.getClass().getSimpleName() + ", defaulting to already configured or default values", e);
