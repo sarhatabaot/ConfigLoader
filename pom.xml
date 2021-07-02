@@ -56,4 +56,11 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>github-configloader</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/sarhatabaot/configloader</url>
+        </repository>
+    </distributionManagement>
 </project>
