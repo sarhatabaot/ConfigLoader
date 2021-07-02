@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.sarhatabaot</groupId>
-    <artifactId>ConfigLoader</artifactId>
+    <artifactId>configloader</artifactId>
     <version>0.1.0</version>
 
     <description>Simple config system based on AutoSaveWorld.</description>
@@ -58,7 +58,7 @@
     </build>
     <distributionManagement>
         <repository>
-            <id>github-configloader</id>
+            <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/sarhatabaot/configloader</url>
         </repository>
