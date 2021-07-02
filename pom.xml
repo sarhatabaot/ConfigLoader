@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.sarhatabaot</groupId>
+    <groupId>net.sarhatabaot.configloader</groupId>
     <artifactId>configloader</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 
     <description>Simple config system based on AutoSaveWorld.</description>
 
